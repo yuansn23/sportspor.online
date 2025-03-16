@@ -12,7 +12,26 @@
 
   gtag('config', 'AW-16929195757');
 </script>
-    
+
+     <!-- Event snippet for 注册 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-16929195757/my0ICIb6sasaEO2NvIg_',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>宏盛サッカー | 専門分析でベッティング成功へ</title>
@@ -53,6 +72,7 @@
         // Function to open LINE
         function opensite() {
               //fbq('track', 'Contact');
+              gtag_report_conversion();
             window.location.href = 'https://line.me/ti/p/TUZvMzvLtv';
         }
     </script>
