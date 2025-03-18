@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+         
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16929195757"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16929195757');
+</script>
+
+     <!-- Event snippet for 注册 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-16929195757/my0ICIb6sasaEO2NvIg_',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>プロフェッショナルサッカー分析ツール | 日本の専門家による分析</title>
@@ -25,7 +55,8 @@
         }
         
         function opensite() {
-            window.open('https://line.me/ja/', '_blank');
+             gtag_report_conversion();
+            window.location.href = 'https://line.me/ti/p/TUZvMzvLtv';
         }
         
         // Check for dark mode preference
