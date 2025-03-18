@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>プロフェッショナルサッカー分析ツール | 日本の専門家による分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D4B8E',
+                        secondary: '#D13B40',
+                        accent: '#F7C242',
+                        light: '#F8F9FA',
+                        dark: '#222222'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans JP', 'sans-serif']
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+        
+        function opensite() {
+            window.open('https://line.me/ja/', '_blank');
+        }
+        
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2D4B8E 0%, #304D91 100%);
+        }
+        
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn-primary:hover:after {
+            animation: ripple 1s ease-out;
+        }
+        
+        .message-icon {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: #D13B40;
+            color: white;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        .dark {
+            background-color: #181818;
+            color: #F8F9FA;
+        }
+        
+        .dark .card {
+            background-color: #262626;
+        }
+        
+        .dark .light-text {
+            color: #F8F9FA;
+        }
+        
+        .dark .secondary-bg {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark">
+    <!-- Hero Section -->
+    <section class="gradient-bg py-12 md:py-20 px-4 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">プロのデータ分析で<br>サッカー観戦をさらに楽しく</h1>
+                    <p class="text-xl text-white/90 mb-8">最先端AIと30名以上の専門アナリストによる<br>精密なサッカー試合予測システム</p>
+                    <button onclick="opensite()" class="btn-primary bg-secondary hover:bg-secondary/90 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg">
+                        無料で始める
+                    </button>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://www.goodmja.online/zuqiu/photo-1517293713403-d47ac01ffca4.webp" alt="サッカー分析" class="rounded-lg shadow-2xl w-full">
+                </div>
+            </div>
+        </div>
+        <div class="absolute left-0 bottom-0 w-full h-16 bg-gradient-to-b from-transparent to-light dark:to-dark"></div>
+    </section>
+
+    <!-- Stats/Features Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-dark dark:text-light mb-12">最新の技術を駆使した<span class="text-primary">データ分析</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stat-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md">
+                    <div class="text-primary text-5xl font-bold mb-4">94%</div>
+                    <h3 class="text-xl font-semibold mb-2 text-dark dark:text-light">高精度予測率</h3>
+                    <p class="text-gray-600 dark:text-gray-300">最先端のAI技術と統計モデルを活用した分析で高い精度を実現</p>
+                </div>
+                
+                <div class="stat-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md">
+                    <div class="text-primary text-5xl font-bold mb-4">30+</div>
+                    <h3 class="text-xl font-semibold mb-2 text-dark dark:text-light">専門アナリスト</h3>
+                    <p class="text-gray-600 dark:text-gray-300">元プロ選手や各国リーグに精通した専門家チームによる分析</p>
+                </div>
+                
+                <div class="stat-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md">
+                    <div class="text-primary text-5xl font-bold mb-4">150+</div>
+                    <h3 class="text-xl font-semibold mb-2 text-dark dark:text-light">データポイント</h3>
+                    <p class="text-gray-600 dark:text-gray-300">各試合で150以上のデータポイントを分析し、精密な試合予測を提供</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button onclick="opensite()" class="btn-primary bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-md">
+                    無料アカウント登録
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="secondary-bg bg-gray-100 dark:bg-gray-800 py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-dark dark:text-light mb-4">ユーザーの成功事例</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto">多くのサッカーファンが私たちの分析ツールを活用し、より深い試合理解を得ています</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">田</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-dark dark:text-light">田中さん</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">東京都、サッカー歴15年</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"このツールを使ってから試合観戦の質が劇的に向上しました。選手の動きやチーム戦術の理解が深まり、友人との議論も充実しています。特に試合前の分析レポートが素晴らしいです。"</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold">佐</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-dark dark:text-light">佐藤さん</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">大阪府、元Jリーグコーチ</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"プロの視点から見ても非常に質の高い分析です。特にプレーヤーのパフォーマンスデータと試合展開予測は、他のどのサービスよりも正確です。若手コーチにも推薦しています。"</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="mb-4 text-gray-600 dark:text-gray-300">多くのプロフェッショナルも活用する分析ツールを今すぐ体験</p>
+                <button onclick="opensite()" class="btn-primary bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-md">
+                    LINEで無料登録
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Message Icon -->
+    <div class="message-icon cursor-pointer" onclick="opensite()">
+        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <div class="notification-badge">1</div>
+        </div>
+    </div>
+</body>
+</html>
